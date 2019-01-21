@@ -18,3 +18,7 @@ body {
 .btn-spaced {
  margin-right:15px; 
 }
+
+.navbarHeight {
+  max-height: 30px;
+}
