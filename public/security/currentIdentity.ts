@@ -1,5 +1,11 @@
+interface CurrentUser {
+  firstName: string;
+  lastName: string;
+  id: number;
+}
+
 angular.module('app').service('currentIdentity', class CurrentIdentity {
-  currentUser: any
+  currentUser: CurrentUser;
   constructor(public $http: any, public $q: any) { }
     
     setUser(user) {

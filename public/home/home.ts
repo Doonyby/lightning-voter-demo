@@ -1,17 +1,16 @@
 angular.module('app').component('home', {
-  templateUrl: "/home/home.html",
+  templateUrl: "./home.html",
   bindings: {
     userSessions: '='
   },
-  controller:  function(currentIdentity, sessions, 
+  controller:  function(currentIdentity, sessions,
     toastr, unreviewedSessionCount) {
-        
         
     this.currentUser = currentIdentity.currentUser
     
     this.setNextSessionToReview = function() {
       sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then((response) => {
-        this.currentSessionToReview = response.data;
+        this.currentSessionToReview = response;
       })
     }
     this.setNextSessionToReview();
