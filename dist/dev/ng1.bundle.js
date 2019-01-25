@@ -10,7 +10,6 @@ __webpack_require__(159);
 __webpack_require__(160);
 __webpack_require__(161);
 __webpack_require__(162);
-__webpack_require__(164);
 __webpack_require__(166);
 __webpack_require__(168);
 __webpack_require__(170);
@@ -24,7 +23,6 @@ __webpack_require__(180);
 __webpack_require__(182);
 __webpack_require__(184);
 __webpack_require__(185);
-__webpack_require__(187);
 __webpack_require__(189);
 __webpack_require__(190);
 
@@ -104,13 +102,13 @@ angular.module('app').config(function($routeProvider) {
         currentAuth: routeResolvers.waitForAuth
       }
     })
-    .when('/admin/results', {
-      template: '<results all-sessions="$resolve.allSessions"></results>',
-      resolve: {
-        admin: routeResolvers.requireAdmin,
-        allSessions: routeResolvers.allSessions
-      }
-    })
+    // .when('/admin/results', {
+    //   template: '<results [all-sessions]="$resolve.allSessions"></results>',
+    //   resolve: {
+    //     admin: routeResolvers.requireAdmin,
+    //     allSessions: routeResolvers.allSessions
+    //   }
+    // })
     .when('/admin/users/:id', {
       template: '<user-details all-users="$resolve.allUsers"></user-details>',
       resolve: {
@@ -159,7 +157,9 @@ angular.module('app').config(function($routeProvider) {
     .when('/logout', {
       template: '<logout></logout>'
     })
-    .otherwise('/home')
+    .when('/', {
+      redirectTo: '/home'
+    })
 })
 
 /***/ }),
@@ -195,34 +195,6 @@ angular.module('app').component('adminLogin', {
 /***/ (function(module, exports) {
 
 module.exports = "<h1>Admin Login</h1>\n\n<form class=\"form\">\n  <div class=\"row\">\n  <div class=\"form-group col-sm-6\">\n    <input type=\"text\" autofocus placeholder=\"Email Address\" ng-model=\"$ctrl.email\" class=\"form-control\">\n  </div>\n  </div>\n  <div class=\"row\">\n  <div class=\"form-group col-sm-6\">\n    <input type=\"password\" placeholder=\"Password\" ng-model=\"$ctrl.password\" class=\"form-control\">\n  </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm-6\">\n    <button class=\"btn btn-primary\" ng-click=\"$ctrl.login()\">Login</button>\n    </div>\n  </div>\n</form>";
-
-/***/ }),
-
-/***/ 164:
-/***/ (function(module, exports, __webpack_require__) {
-
-angular.module('app').component('results', {
-    template: __webpack_require__(165),
-    bindings: {
-        sessionsByVoteDesc: '=allSessions'
-    },
-    controller: function () {
-        this.$onInit = function () {
-            this.sessionsByVoteDesc.sort(function (session1, session2) {
-                // reverse order
-                return session2.voteCount - session1.voteCount;
-            });
-        };
-    }
-});
-
-
-/***/ }),
-
-/***/ 165:
-/***/ (function(module, exports) {
-
-module.exports = "<nav></nav>\n<h1>Results</h1>\n\n<session-detail-with-votes session=\"session\" ng-repeat=\"session in $ctrl.sessionsByVoteDesc\"></session-detail-with-votes>\n\n";
 
 /***/ }),
 
@@ -653,29 +625,6 @@ angular.module('app').component('sessionDetail', {
 /***/ (function(module, exports) {
 
 module.exports = "<detail-panel [collapsed]=\"$ctrl.initialCollapsed\" [title]=\"$ctrl.session.title\">\n  <strong>{{$ctrl.session.length | talkDuration}}</strong>\n  <p><small>{{$ctrl.session.abstract}}</small></p>  \n</detail-panel>\n";
-
-/***/ }),
-
-/***/ 187:
-/***/ (function(module, exports, __webpack_require__) {
-
-angular.module('app').component('sessionDetailWithVotes', {
-    template: __webpack_require__(188),
-    bindings: {
-        session: '=',
-        initialCollapsed: '@'
-    },
-    controller: function () {
-    }
-});
-
-
-/***/ }),
-
-/***/ 188:
-/***/ (function(module, exports) {
-
-module.exports = "<detail-panel collapsed=\"{{$ctrl.initialCollapsed}}\" title=\"{{$ctrl.session.title}}\">\n  <strong>{{$ctrl.session.voteCount}} votes</strong>\n  <p>{{$ctrl.session.length | talkDuration}}</p>\n  <p><small>{{$ctrl.session.abstract}}</small></p>  \n</detail-panel>\n";
 
 /***/ }),
 

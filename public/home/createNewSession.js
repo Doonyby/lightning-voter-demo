@@ -1,5 +1,5 @@
 angular.module('app').component('createNewSession', {
-    templateUrl: '/home/createNewSession.html',
+    templateUrl: './createNewSession.html',
     bindings: {
         userSessions: '='
     },
@@ -15,7 +15,7 @@ angular.module('app').component('createNewSession', {
             };
             sessions.createNewSession(newUserSession).then(function (response) {
                 console.log(response);
-                this.userSessions.push(response.data);
+                this.userSessions.push(response);
             }.bind(this));
         };
     }

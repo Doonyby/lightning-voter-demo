@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
+const AotPlugin = require('@ngtools/webpack').AotPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -10,13 +11,12 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 module.exports = {
     entry: {
         'polyfills': './public/polyfills.ts',
-        'vendor': './public/vendor.ts',
-        'ng1': './public/index.ts',
+        'vendor': './public/vendor-aot.ts',
         'app': './public/main.ts'
     },
 
     output: {
-        path: helpers.root('dist/dev'),
+        path: helpers.root('dist/aot'),
         publicPath: '/',
         filename: '[name].bundle.js',
         chunkFilename: '[id].chunk.js'
@@ -30,7 +30,7 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+                loader: '@ngtools/webpack'
             },
             {
                 test: /\.html$/,
@@ -51,11 +51,9 @@ module.exports = {
             minChunks: 2
         }),
 
-        new webpack.SourceMapDevToolPlugin({
-            "filename": "[file].map[query]",
-            "moduleFilenameTemplate": "[resource-path]",
-            "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
-            "sourceRoot": "webpack:///"
+        new AotPlugin({
+            tsConfigPath: './tsconfig.aot.json',
+            entryModule: helpers.root('public/app/app.module#AppModule')
         }),
 
         new HtmlWebpackPlugin({
@@ -68,6 +66,14 @@ module.exports = {
                 'ENV': JSON.stringify(ENV)
             }
         }), 
+
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            comments: false,
+            compress: {
+                warnings: false
+            }
+        }),
 
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)@angular/,

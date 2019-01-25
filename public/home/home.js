@@ -1,5 +1,5 @@
 angular.module('app').component('home', {
-    templateUrl: "/home/home.html",
+    templateUrl: "./home.html",
     bindings: {
         userSessions: '='
     },
@@ -8,7 +8,7 @@ angular.module('app').component('home', {
         this.setNextSessionToReview = function () {
             var _this = this;
             sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then(function (response) {
-                _this.currentSessionToReview = response.data;
+                _this.currentSessionToReview = response;
             });
         };
         this.setNextSessionToReview();

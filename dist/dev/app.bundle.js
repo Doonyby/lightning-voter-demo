@@ -10,24 +10,9 @@ var platform_browser_dynamic_1 = __webpack_require__(79);
 var static_1 = __webpack_require__(31);
 __webpack_require__(192);
 var app_module_1 = __webpack_require__(206);
-var nameParser_service_1 = __webpack_require__(82);
-var unreviewedTalk_component_1 = __webpack_require__(83);
-var profile_component_1 = __webpack_require__(84);
-var sessions_service_1 = __webpack_require__(86);
-var detailPanel_component_1 = __webpack_require__(87);
+var downgrades_1 = __webpack_require__(213);
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule).then(function (platformRef) {
-    angular.module('app')
-        .factory('nameParser', static_1.downgradeInjectable(nameParser_service_1.NameParser))
-        .factory('sessions', static_1.downgradeInjectable(sessions_service_1.Sessions))
-        .directive('unreviewedTalk', static_1.downgradeComponent({
-        component: unreviewedTalk_component_1.UnreviewedTalkComponent
-    }))
-        .directive('profile', static_1.downgradeComponent({
-        component: profile_component_1.ProfileComponent
-    }))
-        .directive('detailPanel', static_1.downgradeComponent({
-        component: detailPanel_component_1.DetailPanelComponent
-    }));
+    downgrades_1.downgradeItems();
     var upgrade = platformRef.injector.get(static_1.UpgradeModule);
     upgrade.bootstrap(document.documentElement, ['app']);
     console.log('hybrid app bootstrapped');
@@ -455,6 +440,7 @@ var static_1 = __webpack_require__(31);
 var platform_browser_1 = __webpack_require__(13);
 var forms_1 = __webpack_require__(77);
 var http_1 = __webpack_require__(54);
+var router_1 = __webpack_require__(143);
 var app_component_1 = __webpack_require__(207);
 var nameParser_service_1 = __webpack_require__(82);
 var unreviewedTalk_component_1 = __webpack_require__(83);
@@ -464,15 +450,34 @@ var toastr_service_1 = __webpack_require__(85);
 var nav_component_1 = __webpack_require__(211);
 var sessions_service_1 = __webpack_require__(86);
 var detailPanel_component_1 = __webpack_require__(87);
+var results_component_1 = __webpack_require__(214);
+var sessionDetailWithVotes_component_1 = __webpack_require__(216);
 function getLocation(i) {
     return i.get('$location');
 }
+exports.getLocation = getLocation;
 function getCurrentIdentity(i) {
     return i.get('currentIdentity');
 }
+exports.getCurrentIdentity = getCurrentIdentity;
 function getToastr() {
     return toastr;
 }
+exports.getToastr = getToastr;
+var Ng1Ng2UrlHandlingStrategy = (function () {
+    function Ng1Ng2UrlHandlingStrategy() {
+    }
+    Ng1Ng2UrlHandlingStrategy.prototype.shouldProcessUrl = function (url) {
+        return url.toString().startsWith('/admin/results');
+    };
+    Ng1Ng2UrlHandlingStrategy.prototype.extract = function (url) {
+        return url;
+    };
+    Ng1Ng2UrlHandlingStrategy.prototype.merge = function (newUrlPart, rawUrl) {
+        return newUrlPart;
+    };
+    return Ng1Ng2UrlHandlingStrategy;
+}());
 var AppModule = (function () {
     function AppModule() {
     }
@@ -484,7 +489,10 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            static_1.UpgradeModule
+            static_1.UpgradeModule,
+            router_1.RouterModule.forRoot([
+                { path: 'admin/results', component: results_component_1.ResultsComponent }
+            ], { useHash: true })
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -492,7 +500,9 @@ AppModule = __decorate([
             talkDuration_pipe_1.TalkDurationPipe,
             profile_component_1.ProfileComponent,
             nav_component_1.NavComponent,
-            detailPanel_component_1.DetailPanelComponent
+            detailPanel_component_1.DetailPanelComponent,
+            results_component_1.ResultsComponent,
+            sessionDetailWithVotes_component_1.SessionDetailWithVotesComponent
         ],
         providers: [
             nameParser_service_1.NameParser,
@@ -510,7 +520,9 @@ AppModule = __decorate([
                 provide: toastr_service_1.TOASTR_TOKEN,
                 useFactory: getToastr
             },
-            sessions_service_1.Sessions
+            sessions_service_1.Sessions,
+            { provide: router_1.UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy },
+            { provide: '$scope', useExisting: '$rootScope' }
         ],
         bootstrap: [
             app_component_1.AppComponent
@@ -518,7 +530,8 @@ AppModule = __decorate([
         entryComponents: [
             unreviewedTalk_component_1.UnreviewedTalkComponent,
             profile_component_1.ProfileComponent,
-            detailPanel_component_1.DetailPanelComponent
+            detailPanel_component_1.DetailPanelComponent,
+            results_component_1.ResultsComponent
         ]
     })
 ], AppModule);
@@ -548,7 +561,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n        <div class=\"ng-view\"></div>\n    "
+        template: "\n        <router-outlet></router-outlet>\n        <div class=\"ng-view\"></div>\n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
@@ -649,6 +662,133 @@ exports.NavComponent = NavComponent;
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"panel panel-primary\">\n  <div class=\"panel-heading pointable\" (click)=\"collapse()\">\n    <span>{{title}}</span>\n  </div>\n  <div class=\"panel-body\" [hidden]=\"collapsed\">\n    <ng-content></ng-content>\n  </div>\n</div>";
+
+/***/ }),
+
+/***/ 213:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var static_1 = __webpack_require__(31);
+var nameParser_service_1 = __webpack_require__(82);
+var unreviewedTalk_component_1 = __webpack_require__(83);
+var profile_component_1 = __webpack_require__(84);
+var sessions_service_1 = __webpack_require__(86);
+var detailPanel_component_1 = __webpack_require__(87);
+var results_component_1 = __webpack_require__(214);
+function downgradeItems() {
+    angular.module('app')
+        .factory('nameParser', static_1.downgradeInjectable(nameParser_service_1.NameParser))
+        .factory('sessions', static_1.downgradeInjectable(sessions_service_1.Sessions))
+        .directive('unreviewedTalk', static_1.downgradeComponent({
+        component: unreviewedTalk_component_1.UnreviewedTalkComponent
+    }))
+        .directive('profile', static_1.downgradeComponent({
+        component: profile_component_1.ProfileComponent
+    }))
+        .directive('detailPanel', static_1.downgradeComponent({
+        component: detailPanel_component_1.DetailPanelComponent
+    }))
+        .directive('results', static_1.downgradeComponent({
+        component: results_component_1.ResultsComponent
+    }));
+}
+exports.downgradeItems = downgradeItems;
+
+
+/***/ }),
+
+/***/ 214:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var ResultsComponent = (function () {
+    function ResultsComponent() {
+    }
+    ResultsComponent.prototype.ngOnInit = function () {
+        this.sessionsByVoteDesc.sort(function (session1, session2) {
+            // reverse order
+            return session2.voteCount - session1.voteCount;
+        });
+    };
+    return ResultsComponent;
+}());
+__decorate([
+    core_1.Input('allSessions'),
+    __metadata("design:type", Object)
+], ResultsComponent.prototype, "sessionsByVoteDesc", void 0);
+ResultsComponent = __decorate([
+    core_1.Component({
+        selector: 'results',
+        template: __webpack_require__(215)
+    })
+], ResultsComponent);
+exports.ResultsComponent = ResultsComponent;
+
+
+/***/ }),
+
+/***/ 215:
+/***/ (function(module, exports) {
+
+module.exports = "<app-nav></app-nav>\n<h1>Results</h1>\n\n<session-detail-with-votes [session]=\"session\" *ngFor=\"let session of sessionsByVoteDesc\"></session-detail-with-votes>\n\n";
+
+/***/ }),
+
+/***/ 216:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var SessionDetailWithVotesComponent = (function () {
+    function SessionDetailWithVotesComponent() {
+    }
+    return SessionDetailWithVotesComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], SessionDetailWithVotesComponent.prototype, "session", void 0);
+SessionDetailWithVotesComponent = __decorate([
+    core_1.Component({
+        selector: 'session-detail-with-votes',
+        template: __webpack_require__(217)
+    })
+], SessionDetailWithVotesComponent);
+exports.SessionDetailWithVotesComponent = SessionDetailWithVotesComponent;
+
+
+/***/ }),
+
+/***/ 217:
+/***/ (function(module, exports) {
+
+module.exports = "<detail-panel [title]=\"session.title\">\n  <strong>{{session.voteCount}} votes</strong>\n  <p>{{session.length | talkDuration}}</p>\n  <p><small>{{session.abstract}}</small></p>  \n</detail-panel>\n";
 
 /***/ }),
 

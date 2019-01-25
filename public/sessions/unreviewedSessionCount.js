@@ -8,7 +8,7 @@ angular.module('app').service('unreviewedSessionCount', (function () {
         var _this = this;
         this.sessions.getUnreviewedCount(this.currentIdentity.currentUser.id)
             .then(function (response) {
-            _this.value = response.data.count;
+            _this.value = response.count;
         });
     };
     return UnreviewedSessionCount;
