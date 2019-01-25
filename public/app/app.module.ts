@@ -16,6 +16,8 @@ import { Sessions } from "./sessions/sessions.service";
 import { DetailPanelComponent } from "./common/detailPanel.component";
 import { ResultsComponent } from "./admin/results.component";
 import { SessionDetailWithVotesComponent } from "./sessions/sessionDetailWithVotes.component";
+import { AllSessionsResolver } from "./sessions/allSessions.resolver";
+import { AdminGuard } from "./security/admin.guard";
 
 
 export function getLocation(i: any) {
@@ -26,6 +28,9 @@ export function getCurrentIdentity(i: any) {
 }
 export function getToastr() {
     return toastr;
+}
+export function getAuth(i: any) {
+    return i.get('auth')
 }
 
 class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
@@ -47,7 +52,12 @@ class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
         HttpModule,
         UpgradeModule,
         RouterModule.forRoot([
-            { path: 'admin/results', component: ResultsComponent }
+            { 
+                path: 'admin/results',
+                component: ResultsComponent, 
+                resolve: { sessions: AllSessionsResolver},
+                canActivate: [AdminGuard] 
+            }
         ], {useHash: true})
     ],
     declarations: [
@@ -72,13 +82,20 @@ class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
             useFactory: getCurrentIdentity, 
             deps: ['$injector']
         },
+        { 
+            provide: 'auth', 
+            useFactory: getAuth, 
+            deps: ['$injector']
+        },
         {
             provide: TOASTR_TOKEN,
             useFactory: getToastr
         },
         Sessions,
         { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy },
-        { provide: '$scope', useExisting: '$rootScope' }
+        { provide: '$scope', useExisting: '$rootScope' },
+        AllSessionsResolver,
+        AdminGuard
 
     ],
     bootstrap: [

@@ -19,7 +19,6 @@ export class Sessions {
             .map((response: Response) => {
                 return response.json();
             })
-            .toPromise();
     }
 
     createNewSession(newSession) {

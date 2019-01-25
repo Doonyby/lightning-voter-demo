@@ -15,11 +15,6 @@ angular.module('app').config(function($routeProvider) {
         return sessions.getSessionsByUser(currentIdentity.currentUser.id);
       });
     },
-    allSessions: function(sessions, auth) {
-      return auth.requireLogin().then(function() {
-        return sessions.getAllSessions();
-      });
-    },
     allUsers: function(users, auth) {
       return auth.requireLogin().then(function() {
         return users.getAllUsers();

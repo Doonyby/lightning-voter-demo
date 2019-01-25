@@ -1,16 +1,16 @@
-webpackJsonp([3],{
+webpackJsonp([2],{
 
-/***/ 191:
+/***/ 188:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var platform_browser_dynamic_1 = __webpack_require__(79);
-var static_1 = __webpack_require__(31);
-__webpack_require__(192);
-var app_module_1 = __webpack_require__(206);
-var downgrades_1 = __webpack_require__(213);
+var platform_browser_dynamic_1 = __webpack_require__(81);
+var static_1 = __webpack_require__(19);
+__webpack_require__(189);
+var app_module_1 = __webpack_require__(203);
+var downgrades_1 = __webpack_require__(214);
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule).then(function (platformRef) {
     downgrades_1.downgradeItems();
     var upgrade = platformRef.injector.get(static_1.UpgradeModule);
@@ -21,52 +21,52 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 
 /***/ }),
 
-/***/ 192:
+/***/ 189:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(190);
+__webpack_require__(191);
 __webpack_require__(193);
-__webpack_require__(194);
+__webpack_require__(195);
 __webpack_require__(196);
 __webpack_require__(198);
-__webpack_require__(199);
+__webpack_require__(200);
 __webpack_require__(201);
-__webpack_require__(203);
-__webpack_require__(204);
-__webpack_require__(205);
+__webpack_require__(202);
 
 
 /***/ }),
 
-/***/ 193:
+/***/ 190:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var catch_1 = __webpack_require__(81);
+var catch_1 = __webpack_require__(83);
 Observable_1.Observable.prototype.catch = catch_1._catch;
 Observable_1.Observable.prototype._catch = catch_1._catch;
 //# sourceMappingURL=catch.js.map
 
 /***/ }),
 
-/***/ 194:
+/***/ 191:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var do_1 = __webpack_require__(195);
+var do_1 = __webpack_require__(192);
 Observable_1.Observable.prototype.do = do_1._do;
 Observable_1.Observable.prototype._do = do_1._do;
 //# sourceMappingURL=do.js.map
 
 /***/ }),
 
-/***/ 195:
+/***/ 192:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -186,20 +186,20 @@ var DoSubscriber = (function (_super) {
 
 /***/ }),
 
-/***/ 196:
+/***/ 193:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var finally_1 = __webpack_require__(197);
+var finally_1 = __webpack_require__(194);
 Observable_1.Observable.prototype.finally = finally_1._finally;
 Observable_1.Observable.prototype._finally = finally_1._finally;
 //# sourceMappingURL=finally.js.map
 
 /***/ }),
 
-/***/ 197:
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -249,36 +249,36 @@ var FinallySubscriber = (function (_super) {
 
 /***/ }),
 
-/***/ 198:
+/***/ 195:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var map_1 = __webpack_require__(30);
+var map_1 = __webpack_require__(31);
 Observable_1.Observable.prototype.map = map_1.map;
 //# sourceMappingURL=map.js.map
 
 /***/ }),
 
-/***/ 199:
+/***/ 196:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var pluck_1 = __webpack_require__(200);
+var pluck_1 = __webpack_require__(197);
 Observable_1.Observable.prototype.pluck = pluck_1.pluck;
 //# sourceMappingURL=pluck.js.map
 
 /***/ }),
 
-/***/ 200:
+/***/ 197:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var map_1 = __webpack_require__(30);
+var map_1 = __webpack_require__(31);
 /**
  * Maps each source value (an object) to its specified nested property.
  *
@@ -338,19 +338,19 @@ function plucker(props, length) {
 
 /***/ }),
 
-/***/ 201:
+/***/ 198:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var toPromise_1 = __webpack_require__(202);
+var toPromise_1 = __webpack_require__(199);
 Observable_1.Observable.prototype.toPromise = toPromise_1.toPromise;
 //# sourceMappingURL=toPromise.js.map
 
 /***/ }),
 
-/***/ 202:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -386,32 +386,32 @@ exports.toPromise = toPromise;
 
 /***/ }),
 
-/***/ 203:
+/***/ 200:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var mergeMap_1 = __webpack_require__(55);
+var mergeMap_1 = __webpack_require__(56);
 Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
 Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
 //# sourceMappingURL=mergeMap.js.map
 
 /***/ }),
 
-/***/ 204:
+/***/ 201:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var of_1 = __webpack_require__(80);
+var of_1 = __webpack_require__(82);
 Observable_1.Observable.of = of_1.of;
 //# sourceMappingURL=of.js.map
 
 /***/ }),
 
-/***/ 205:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -423,7 +423,7 @@ Observable_1.Observable.fromPromise = fromPromise_1.fromPromise;
 
 /***/ }),
 
-/***/ 206:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -436,22 +436,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var static_1 = __webpack_require__(31);
+var static_1 = __webpack_require__(19);
 var platform_browser_1 = __webpack_require__(13);
-var forms_1 = __webpack_require__(77);
+var forms_1 = __webpack_require__(79);
 var http_1 = __webpack_require__(54);
-var router_1 = __webpack_require__(143);
-var app_component_1 = __webpack_require__(207);
-var nameParser_service_1 = __webpack_require__(82);
-var unreviewedTalk_component_1 = __webpack_require__(83);
-var talkDuration_pipe_1 = __webpack_require__(209);
-var profile_component_1 = __webpack_require__(84);
-var toastr_service_1 = __webpack_require__(85);
-var nav_component_1 = __webpack_require__(211);
-var sessions_service_1 = __webpack_require__(86);
-var detailPanel_component_1 = __webpack_require__(87);
-var results_component_1 = __webpack_require__(214);
-var sessionDetailWithVotes_component_1 = __webpack_require__(216);
+var router_1 = __webpack_require__(55);
+var app_component_1 = __webpack_require__(204);
+var nameParser_service_1 = __webpack_require__(84);
+var unreviewedTalk_component_1 = __webpack_require__(85);
+var talkDuration_pipe_1 = __webpack_require__(206);
+var profile_component_1 = __webpack_require__(86);
+var toastr_service_1 = __webpack_require__(87);
+var nav_component_1 = __webpack_require__(208);
+var sessions_service_1 = __webpack_require__(58);
+var detailPanel_component_1 = __webpack_require__(88);
+var results_component_1 = __webpack_require__(89);
+var sessionDetailWithVotes_component_1 = __webpack_require__(211);
+var allSessions_resolver_1 = __webpack_require__(213);
+var admin_guard_1 = __webpack_require__(215);
 function getLocation(i) {
     return i.get('$location');
 }
@@ -464,6 +466,10 @@ function getToastr() {
     return toastr;
 }
 exports.getToastr = getToastr;
+function getAuth(i) {
+    return i.get('auth');
+}
+exports.getAuth = getAuth;
 var Ng1Ng2UrlHandlingStrategy = (function () {
     function Ng1Ng2UrlHandlingStrategy() {
     }
@@ -491,7 +497,12 @@ AppModule = __decorate([
             http_1.HttpModule,
             static_1.UpgradeModule,
             router_1.RouterModule.forRoot([
-                { path: 'admin/results', component: results_component_1.ResultsComponent }
+                {
+                    path: 'admin/results',
+                    component: results_component_1.ResultsComponent,
+                    resolve: { sessions: allSessions_resolver_1.AllSessionsResolver },
+                    canActivate: [admin_guard_1.AdminGuard]
+                }
             ], { useHash: true })
         ],
         declarations: [
@@ -517,12 +528,19 @@ AppModule = __decorate([
                 deps: ['$injector']
             },
             {
+                provide: 'auth',
+                useFactory: getAuth,
+                deps: ['$injector']
+            },
+            {
                 provide: toastr_service_1.TOASTR_TOKEN,
                 useFactory: getToastr
             },
             sessions_service_1.Sessions,
             { provide: router_1.UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy },
-            { provide: '$scope', useExisting: '$rootScope' }
+            { provide: '$scope', useExisting: '$rootScope' },
+            allSessions_resolver_1.AllSessionsResolver,
+            admin_guard_1.AdminGuard
         ],
         bootstrap: [
             app_component_1.AppComponent
@@ -540,7 +558,7 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
-/***/ 207:
+/***/ 204:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -569,14 +587,14 @@ exports.AppComponent = AppComponent;
 
 /***/ }),
 
-/***/ 208:
+/***/ 205:
 /***/ (function(module, exports) {
 
 module.exports = "<div *ngIf=\"!!session\">\n  <div  class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      {{session.title}}\n    </div>\n    <div class=\"panel-body\">\n      <p><strong>{{session.length | talkDuration}}</strong></p>\n      <p>{{session.abstract}}</p>\n    </div>\n  </div>\n\n  <span>Are you interested in this session?</span>\n  <button class=\"btn btn-primary btn-xs\" (click)=\"yes()\">Yes</button>\n  <button class=\"btn btn-warning btn-xs\" (click)=\"no()\">No</button>\n</div>\n<div *ngIf=\"!session\" class=\"alert alert-success\" role=\"alert\"> \n  You have reviewed all the submitted sessions\n</div>";
 
 /***/ }),
 
-/***/ 209:
+/***/ 206:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -605,14 +623,14 @@ exports.TalkDurationPipe = TalkDurationPipe;
 
 /***/ }),
 
-/***/ 210:
+/***/ 207:
 /***/ (function(module, exports) {
 
 module.exports = "<app-nav></app-nav>\n\n<h1>User Profile</h1>\n\n<form class=\"form-inline\" #form=\"ngForm\">\n  <label for=\"firstName\">First Name</label>\n  <input type=\"text\" id=\"firstName\" placeholder=\"First Name\"\n    class=\"form-control\" [ngModel]=\"currentIdentity.currentUser.firstName\" name=\"firstName\">\n    \n  <label for=\"lastName\">Last Name</label>\n  <input type=\"text\" id=\"lastName\" placeholder=\"Last Name\"\n    class=\"form-control\" [ngModel]=\"currentIdentity.currentUser.lastName\" name=\"lastName\">\n  \n  <br><br>\n  <button class=\"btn btn-primary btn-sm\" (click)=\"save(form.value)\">Save</button>\n  <button class=\"btn btn-warning btn-sm\" (click)=\"cancel()\">Cancel</button>\n</form>";
 
 /***/ }),
 
-/***/ 211:
+/***/ 208:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -638,7 +656,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var static_1 = __webpack_require__(31);
+var static_1 = __webpack_require__(19);
 var NavComponent = (function (_super) {
     __extends(NavComponent, _super);
     function NavComponent(elementRef, injector) {
@@ -658,98 +676,21 @@ exports.NavComponent = NavComponent;
 
 /***/ }),
 
-/***/ 212:
+/***/ 209:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"panel panel-primary\">\n  <div class=\"panel-heading pointable\" (click)=\"collapse()\">\n    <span>{{title}}</span>\n  </div>\n  <div class=\"panel-body\" [hidden]=\"collapsed\">\n    <ng-content></ng-content>\n  </div>\n</div>";
 
 /***/ }),
 
-/***/ 213:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var static_1 = __webpack_require__(31);
-var nameParser_service_1 = __webpack_require__(82);
-var unreviewedTalk_component_1 = __webpack_require__(83);
-var profile_component_1 = __webpack_require__(84);
-var sessions_service_1 = __webpack_require__(86);
-var detailPanel_component_1 = __webpack_require__(87);
-var results_component_1 = __webpack_require__(214);
-function downgradeItems() {
-    angular.module('app')
-        .factory('nameParser', static_1.downgradeInjectable(nameParser_service_1.NameParser))
-        .factory('sessions', static_1.downgradeInjectable(sessions_service_1.Sessions))
-        .directive('unreviewedTalk', static_1.downgradeComponent({
-        component: unreviewedTalk_component_1.UnreviewedTalkComponent
-    }))
-        .directive('profile', static_1.downgradeComponent({
-        component: profile_component_1.ProfileComponent
-    }))
-        .directive('detailPanel', static_1.downgradeComponent({
-        component: detailPanel_component_1.DetailPanelComponent
-    }))
-        .directive('results', static_1.downgradeComponent({
-        component: results_component_1.ResultsComponent
-    }));
-}
-exports.downgradeItems = downgradeItems;
-
-
-/***/ }),
-
-/***/ 214:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var ResultsComponent = (function () {
-    function ResultsComponent() {
-    }
-    ResultsComponent.prototype.ngOnInit = function () {
-        this.sessionsByVoteDesc.sort(function (session1, session2) {
-            // reverse order
-            return session2.voteCount - session1.voteCount;
-        });
-    };
-    return ResultsComponent;
-}());
-__decorate([
-    core_1.Input('allSessions'),
-    __metadata("design:type", Object)
-], ResultsComponent.prototype, "sessionsByVoteDesc", void 0);
-ResultsComponent = __decorate([
-    core_1.Component({
-        selector: 'results',
-        template: __webpack_require__(215)
-    })
-], ResultsComponent);
-exports.ResultsComponent = ResultsComponent;
-
-
-/***/ }),
-
-/***/ 215:
+/***/ 210:
 /***/ (function(module, exports) {
 
 module.exports = "<app-nav></app-nav>\n<h1>Results</h1>\n\n<session-detail-with-votes [session]=\"session\" *ngFor=\"let session of sessionsByVoteDesc\"></session-detail-with-votes>\n\n";
 
 /***/ }),
 
-/***/ 216:
+/***/ 211:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -777,7 +718,7 @@ __decorate([
 SessionDetailWithVotesComponent = __decorate([
     core_1.Component({
         selector: 'session-detail-with-votes',
-        template: __webpack_require__(217)
+        template: __webpack_require__(212)
     })
 ], SessionDetailWithVotesComponent);
 exports.SessionDetailWithVotesComponent = SessionDetailWithVotesComponent;
@@ -785,52 +726,14 @@ exports.SessionDetailWithVotesComponent = SessionDetailWithVotesComponent;
 
 /***/ }),
 
-/***/ 217:
+/***/ 212:
 /***/ (function(module, exports) {
 
 module.exports = "<detail-panel [title]=\"session.title\">\n  <strong>{{session.voteCount}} votes</strong>\n  <p>{{session.length | talkDuration}}</p>\n  <p><small>{{session.abstract}}</small></p>  \n</detail-panel>\n";
 
 /***/ }),
 
-/***/ 82:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var NameParser = (function () {
-    function NameParser() {
-    }
-    NameParser.prototype.parse = function (blobInput) {
-        var lines = blobInput.split(/\r?\n/);
-        lines.forEach(function (line, idx) {
-            var pieces = line.split('|');
-            lines[idx] = {
-                email: pieces[0],
-                firstName: pieces[1],
-                lastName: pieces[2]
-            };
-        });
-        return lines;
-    };
-    return NameParser;
-}());
-NameParser = __decorate([
-    core_1.Injectable()
-], NameParser);
-exports.NameParser = NameParser;
-
-
-/***/ }),
-
-/***/ 83:
+/***/ 213:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -846,43 +749,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var UnreviewedTalkComponent = (function () {
-    function UnreviewedTalkComponent() {
-        this.voteYes = new core_1.EventEmitter();
-        this.voteNo = new core_1.EventEmitter();
+var sessions_service_1 = __webpack_require__(58);
+var AllSessionsResolver = (function () {
+    function AllSessionsResolver(sessions) {
+        this.sessions = sessions;
     }
-    UnreviewedTalkComponent.prototype.yes = function () {
-        this.voteYes.emit(null);
+    AllSessionsResolver.prototype.resolve = function (route, state) {
+        return this.sessions.getAllSessions();
     };
-    UnreviewedTalkComponent.prototype.no = function () {
-        this.voteNo.emit(null);
-    };
-    return UnreviewedTalkComponent;
+    return AllSessionsResolver;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], UnreviewedTalkComponent.prototype, "session", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], UnreviewedTalkComponent.prototype, "voteYes", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], UnreviewedTalkComponent.prototype, "voteNo", void 0);
-UnreviewedTalkComponent = __decorate([
-    core_1.Component({
-        selector: 'unreviewed-talk',
-        template: __webpack_require__(208)
-    })
-], UnreviewedTalkComponent);
-exports.UnreviewedTalkComponent = UnreviewedTalkComponent;
+AllSessionsResolver = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [sessions_service_1.Sessions])
+], AllSessionsResolver);
+exports.AllSessionsResolver = AllSessionsResolver;
 
 
 /***/ }),
 
-/***/ 84:
+/***/ 214:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var static_1 = __webpack_require__(19);
+var nameParser_service_1 = __webpack_require__(84);
+var unreviewedTalk_component_1 = __webpack_require__(85);
+var profile_component_1 = __webpack_require__(86);
+var sessions_service_1 = __webpack_require__(58);
+var detailPanel_component_1 = __webpack_require__(88);
+var results_component_1 = __webpack_require__(89);
+function downgradeItems() {
+    angular.module('app')
+        .factory('nameParser', static_1.downgradeInjectable(nameParser_service_1.NameParser))
+        .factory('sessions', static_1.downgradeInjectable(sessions_service_1.Sessions))
+        .directive('unreviewedTalk', static_1.downgradeComponent({
+        component: unreviewedTalk_component_1.UnreviewedTalkComponent
+    }))
+        .directive('profile', static_1.downgradeComponent({
+        component: profile_component_1.ProfileComponent
+    }))
+        .directive('detailPanel', static_1.downgradeComponent({
+        component: detailPanel_component_1.DetailPanelComponent
+    }))
+        .directive('results', static_1.downgradeComponent({
+        component: results_component_1.ResultsComponent
+    }));
+}
+exports.downgradeItems = downgradeItems;
+
+
+/***/ }),
+
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -901,50 +822,26 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var toastr_service_1 = __webpack_require__(85);
-var ProfileComponent = (function () {
-    function ProfileComponent($location, currentIdentity, toastr) {
-        this.$location = $location;
-        this.currentIdentity = currentIdentity;
-        this.toastr = toastr;
+var AdminGuard = (function () {
+    function AdminGuard(auth) {
+        this.auth = auth;
     }
-    ProfileComponent.prototype.save = function (newProfile) {
-        this.currentIdentity.updateUser(newProfile);
-        toastr.success('Profile Saved!');
+    AdminGuard.prototype.canActivate = function (route, state) {
+        return this.auth.requireAdmin2();
     };
-    ProfileComponent.prototype.cancel = function () {
-        this.$location.path('/home');
-    };
-    return ProfileComponent;
+    return AdminGuard;
 }());
-ProfileComponent = __decorate([
-    core_1.Component({
-        selector: 'profile',
-        template: __webpack_require__(210)
-    }),
-    __param(0, core_1.Inject('$location')),
-    __param(1, core_1.Inject('currentIdentity')),
-    __param(2, core_1.Inject(toastr_service_1.TOASTR_TOKEN)),
-    __metadata("design:paramtypes", [Object, Object, Object])
-], ProfileComponent);
-exports.ProfileComponent = ProfileComponent;
+AdminGuard = __decorate([
+    core_1.Injectable(),
+    __param(0, core_1.Inject('auth')),
+    __metadata("design:paramtypes", [Object])
+], AdminGuard);
+exports.AdminGuard = AdminGuard;
 
 
 /***/ }),
 
-/***/ 85:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-exports.TOASTR_TOKEN = new core_1.InjectionToken('toastr');
-
-
-/***/ }),
-
-/***/ 86:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -977,8 +874,7 @@ var Sessions = (function () {
         return this.http.get('/api/sessions')
             .map(function (response) {
             return response.json();
-        })
-            .toPromise();
+        });
     };
     Sessions.prototype.createNewSession = function (newSession) {
         return this.http.post('/api/sessions', newSession)
@@ -1024,7 +920,159 @@ exports.Sessions = Sessions;
 
 /***/ }),
 
+/***/ 84:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var NameParser = (function () {
+    function NameParser() {
+    }
+    NameParser.prototype.parse = function (blobInput) {
+        var lines = blobInput.split(/\r?\n/);
+        lines.forEach(function (line, idx) {
+            var pieces = line.split('|');
+            lines[idx] = {
+                email: pieces[0],
+                firstName: pieces[1],
+                lastName: pieces[2]
+            };
+        });
+        return lines;
+    };
+    return NameParser;
+}());
+NameParser = __decorate([
+    core_1.Injectable()
+], NameParser);
+exports.NameParser = NameParser;
+
+
+/***/ }),
+
+/***/ 85:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var UnreviewedTalkComponent = (function () {
+    function UnreviewedTalkComponent() {
+        this.voteYes = new core_1.EventEmitter();
+        this.voteNo = new core_1.EventEmitter();
+    }
+    UnreviewedTalkComponent.prototype.yes = function () {
+        this.voteYes.emit(null);
+    };
+    UnreviewedTalkComponent.prototype.no = function () {
+        this.voteNo.emit(null);
+    };
+    return UnreviewedTalkComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], UnreviewedTalkComponent.prototype, "session", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], UnreviewedTalkComponent.prototype, "voteYes", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], UnreviewedTalkComponent.prototype, "voteNo", void 0);
+UnreviewedTalkComponent = __decorate([
+    core_1.Component({
+        selector: 'unreviewed-talk',
+        template: __webpack_require__(205)
+    })
+], UnreviewedTalkComponent);
+exports.UnreviewedTalkComponent = UnreviewedTalkComponent;
+
+
+/***/ }),
+
+/***/ 86:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var toastr_service_1 = __webpack_require__(87);
+var ProfileComponent = (function () {
+    function ProfileComponent($location, currentIdentity, toastr) {
+        this.$location = $location;
+        this.currentIdentity = currentIdentity;
+        this.toastr = toastr;
+    }
+    ProfileComponent.prototype.save = function (newProfile) {
+        this.currentIdentity.updateUser(newProfile);
+        toastr.success('Profile Saved!');
+    };
+    ProfileComponent.prototype.cancel = function () {
+        this.$location.path('/home');
+    };
+    return ProfileComponent;
+}());
+ProfileComponent = __decorate([
+    core_1.Component({
+        selector: 'profile',
+        template: __webpack_require__(207)
+    }),
+    __param(0, core_1.Inject('$location')),
+    __param(1, core_1.Inject('currentIdentity')),
+    __param(2, core_1.Inject(toastr_service_1.TOASTR_TOKEN)),
+    __metadata("design:paramtypes", [Object, Object, Object])
+], ProfileComponent);
+exports.ProfileComponent = ProfileComponent;
+
+
+/***/ }),
+
 /***/ 87:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+exports.TOASTR_TOKEN = new core_1.InjectionToken('toastr');
+
+
+/***/ }),
+
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1059,13 +1107,58 @@ __decorate([
 DetailPanelComponent = __decorate([
     core_1.Component({
         selector: 'detail-panel',
-        template: __webpack_require__(212),
+        template: __webpack_require__(209),
     })
 ], DetailPanelComponent);
 exports.DetailPanelComponent = DetailPanelComponent;
 
 
+/***/ }),
+
+/***/ 89:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(55);
+var ResultsComponent = (function () {
+    function ResultsComponent(route) {
+        this.route = route;
+    }
+    ResultsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.data.forEach(function (data) {
+            _this.sessionsByVoteDesc = data.sessions;
+        });
+        this.sessionsByVoteDesc.sort(function (session1, session2) {
+            // reverse order
+            return session2.voteCount - session1.voteCount;
+        });
+    };
+    return ResultsComponent;
+}());
+ResultsComponent = __decorate([
+    core_1.Component({
+        selector: 'results',
+        template: __webpack_require__(210)
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute])
+], ResultsComponent);
+exports.ResultsComponent = ResultsComponent;
+
+
 /***/ })
 
-},[191]);
+},[188]);
 //# sourceMappingURL=app.bundle.js.map
